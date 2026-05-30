@@ -6,6 +6,7 @@ import { User, UserSchema } from './users/user.schema';
 import { Invite, InviteSchema } from './invites/invite.schema';
 
 import { AuthModule } from './auth/auth.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -26,5 +27,6 @@ import { AuthModule } from './auth/auth.module';
     ]),
     AuthModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
