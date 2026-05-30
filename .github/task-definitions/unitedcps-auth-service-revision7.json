@@ -1,0 +1,152 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:535079144534:task-definition/unitedcps-auth-service:7",
+    "containerDefinitions": [
+        {
+            "name": "auth-service",
+            "image": "535079144534.dkr.ecr.eu-north-1.amazonaws.com/unitedcps/auth-service:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 3001,
+                    "hostPort": 3001,
+                    "protocol": "tcp",
+                    "name": "auth-service-3001-tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "INVITE_EXPIRES_DAYS",
+                    "value": "7"
+                },
+                {
+                    "name": "JWT_ACCESS_SECRET",
+                    "value": "REPLACE_IN_AWS"
+                },
+                {
+                    "name": "JWT_REFRESH_SECRET",
+                    "value": "REPLACE_IN_AWS"
+                },
+                {
+                    "name": "PORT",
+                    "value": "3001"
+                },
+                {
+                    "name": "PASSWORD_RESET_TTL_MINUTES",
+                    "value": "30"
+                },
+                {
+                    "name": "MONGO_DB",
+                    "value": "auth_db"
+                },
+                {
+                    "name": "MONGO_URI",
+                    "value": "REPLACE_IN_AWS"
+                },
+                {
+                    "name": "SENDGRID_API_KEY",
+                    "value": "REPLACE_IN_AWS"
+                },
+                {
+                    "name": "BCRYPT_ROUNDS",
+                    "value": "10"
+                },
+                {
+                    "name": "CORS_ORIGIN",
+                    "value": "https://crm.unitedcpsoperations.com"
+                },
+                {
+                    "name": "ENGINEER_APP_ANDROID_URL",
+                    "value": "https://play.google.com/store/apps/details?id=your.app.id"
+                },
+                {
+                    "name": "SENDGRID_FROM_EMAIL",
+                    "value": "unitedcpstech@gmail.com"
+                },
+                {
+                    "name": "ENGINEER_APP_IOS_URL",
+                    "value": "https://apps.apple.com/app/idyourappid"
+                },
+                {
+                    "name": "JWT_REFRESH_EXPIRES_IN",
+                    "value": "30d"
+                },
+                {
+                    "name": "PUBLIC_WEB_BASE_URL",
+                    "value": "https://crm.unitedcpsoperations.com"
+                },
+                {
+                    "name": "JWT_ACCESS_EXPIRES_IN",
+                    "value": "15m"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/unitedcps-auth-service",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "eu-north-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "unitedcps-auth-service",
+    "executionRoleArn": "arn:aws:iam::535079144534:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 7,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "MANAGED_INSTANCES",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "registeredAt": "2026-05-30T15:53:11.860Z",
+    "registeredBy": "arn:aws:iam::535079144534:root",
+    "enableFaultInjection": false,
+    "tags": []
+}
