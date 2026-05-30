@@ -52,6 +52,11 @@ jobs:
           task-definition: .github/task-definitions/unitedcps-auth-service-revision7.json
           container-name: auth-service
           image: ${{ steps.build-image.outputs.image }}
+          environment-variables: |
+            MONGO_URI=${{ secrets.MONGO_URI_AUTH }}
+            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY_AUTH }}
+            JWT_ACCESS_SECRET=${{ secrets.JWT_ACCESS_SECRET_AUTH }}
+            JWT_REFRESH_SECRET=${{ secrets.JWT_REFRESH_SECRET_AUTH }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
