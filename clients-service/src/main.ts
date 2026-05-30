@@ -17,7 +17,7 @@ async function bootstrap() {
   });
 
   const port = process.env.PORT || 3006;
-  await app.listen(port);
+await app.listen(port, '0.0.0.0');
 
   console.log(`Clients service running on port ${port}`);
 }
