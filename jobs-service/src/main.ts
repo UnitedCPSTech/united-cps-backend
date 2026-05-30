@@ -16,8 +16,8 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type,Authorization',
   });
 
-  const port = process.env.PORT ?? 3009;
-  await app.listen(port);
+  const port = process.env.PORT ?? 3002;
+  await app.listen(port, '0.0.0.0');
 
   console.log(`Jobs service running on port ${port}`);
 }
