@@ -55,6 +55,7 @@ jobs:
           environment-variables: |
             MONGO_AUTH_URI=${{ secrets.MONGO_AUTH_URI_ENGINEERS }}
             MONGO_ENGINEERS_URI=${{ secrets.MONGO_ENGINEERS_URI_ENGINEERS }}
+            JOBS_SERVICE_URL=${{ secrets.JOBS_SERVICE_URL_ENGINEERS }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
